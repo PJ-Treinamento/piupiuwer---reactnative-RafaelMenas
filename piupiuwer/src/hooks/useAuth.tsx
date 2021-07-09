@@ -14,6 +14,8 @@ interface AuthContextData {
   token: string;
   login(cred: LoginCredentials): void;
   logout(): void;
+  reload: Boolean; 
+  setReload: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface LoginCredentials {
@@ -27,6 +29,7 @@ export const AuthContext = createContext<AuthContextData>(
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [userData, setUserData] = useState<AuthState>({} as AuthState);
+  const [reload, setReload] = useState<boolean>(false);
 
   useEffect(() => {
     async function getData() {
@@ -63,7 +66,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ logout, login, token: userData.token, user: userData.user }}
+      value={{ logout, login, token: userData.token, user: userData.user, reload: reload, setReload: setReload }}
     >
       {children}
     </AuthContext.Provider>

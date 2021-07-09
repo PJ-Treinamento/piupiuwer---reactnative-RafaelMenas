@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ArrowBack from "../../assets/principal/Arrow.png";
-import {TextInput} from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 import * as S from "./styles";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigation } from "@react-navigation/native";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 function Login() {
   const {login} = useAuth();
@@ -11,22 +13,31 @@ function Login() {
   const [emailInput, setEmailInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
 
-  console.log(emailInput);
+  const { navigate } = useNavigation();
+
+  function handleGoBack(){
+    navigate('Landing');
+  }
   
     return (
     <S.LoginWrapper>
-        <S.ButtonBackToLanding source={ArrowBack} />
+      <S.ButtonBack onPress={handleGoBack}>
+        <S.BackImg source={ArrowBack} resizeMode="contain" />
+      </S.ButtonBack>
       <S.BlockWrapper>
-        <S.Inputs>
-          <S.Email placeholder="email" onChangeText={text => setEmailInput(text)} value={emailInput}></S.Email>
-          <S.Password placeholder="password" onChangeText={text => setPasswordInput(text)} value={passwordInput}></S.Password>
-        </S.Inputs>
-        <S.ButtonForgotPassword>
+        <S.InputsEmailPassword>
+          <S.Input placeholder="email" onChangeText={text => setEmailInput(text)} value={emailInput}></S.Input>
+          <S.Input placeholder="password" onChangeText={text => setPasswordInput(text)} value={passwordInput}></S.Input>
+        </S.InputsEmailPassword>
+        
+        <S.Buttons>
           <S.LoginButton onPress={() => login({ email: emailInput, password: passwordInput })}>
             <S.LogInText>Log In</S.LogInText>
           </S.LoginButton>
-          <S.ForgotPasswordText>Forgot your password?</S.ForgotPasswordText>
-        </S.ButtonForgotPassword>
+          <S.ForgotButton>
+            <S.ForgotText>Forgot your password?</S.ForgotText>
+          </S.ForgotButton>
+        </S.Buttons>
       </S.BlockWrapper>
     </S.LoginWrapper>
   );
