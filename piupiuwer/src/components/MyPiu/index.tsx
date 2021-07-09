@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import api from "../../api";
+import api from "../../../service/api";
 
 import * as S from "./styles";
 
 import { useAuth } from "../../hooks/useAuth";
 import { ITextPiu } from "../../models";
+import { useEffect } from "react";
 
 const Mypiu = () => {
+
+  const {setReload, reload} = useAuth();
+
   const [textBoolean, setTextBoolean] = useState("");
 
   const [textPost, setTextPost] = useState("");
@@ -19,7 +23,7 @@ const Mypiu = () => {
       headers: { Authorization: `Bearer ${token}` },
       text,
     });
-    window.location.reload();
+    setReload(!reload);
   };
 
   const correction = () => {
@@ -35,35 +39,40 @@ const Mypiu = () => {
     }
     if (textPost.length < 140 && textPost.length > 0) {
       setTextBoolean("");
+      postPius({ text: textPost }); 
     }
   };
 
   return (
     <S.MyPiuWrapper>
       <S.PrincipalWrapper>
-        <img src={user.photo} alt="imagem de perfil" />{" "}
-        <S.Question>What are you thinking?</S.Question>
-        <S.Arroba>{"@" + user.username}</S.Arroba>
+        <S.ImageQuestion>
+          <S.PerfilImg source={{ uri: `${user.photo}` }} />
+          <S.Question>What are you thinking?</S.Question>
+        </S.ImageQuestion>
+        <S.Arroba>{"@" + `${user.username}`}</S.Arroba>
       </S.PrincipalWrapper>
       <S.TextPiuWrapper>
-        <textarea
-          name="think"
-          id="thinking"
+        <S.InputPiu
+          multiline={true}
           placeholder="How are you?"
-          onChange={(e) => setTextPost(e.target.value)}
-        ></textarea>
-        <p style={{ color: textPost.length > 140 ? "red" : "black" }}>
+          onChangeText={(text) => setTextPost(text)}
+          value={textPost}
+        />
+        <S.CorrecText
+          style={{ color: textPost.length > 140 ? "red" : "black" }}
+        >
           {textPost.length}
-        </p>
-        <button
-          onClick={() => {
+        </S.CorrecText>
+        <S.ButtonPost
+          onPress={() => {
             correction();
-            postPius({ text: textPost });
+            
           }}
         >
-          piu
-        </button>
-        <p style={{ color: "red" }}>{textBoolean}</p>
+          <S.TextButtonPost>piu</S.TextButtonPost>
+        </S.ButtonPost>
+        <S.CorrectText style={{ color: "red" }}>{textBoolean}</S.CorrectText>
       </S.TextPiuWrapper>
     </S.MyPiuWrapper>
   );

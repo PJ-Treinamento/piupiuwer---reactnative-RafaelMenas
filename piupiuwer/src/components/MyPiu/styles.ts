@@ -1,58 +1,76 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 
-export const MyPiuWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  img {
-    width: 8rem;
-    border-radius: 5rem;
-  }
+export const MyPiuWrapper = styled.View`
+  
 `;
 
-export const PrincipalWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const PrincipalWrapper = styled.View`
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 20px;
+  flex-direction: row;
+  border: 1px solid grey;
+  background-color: white;
+  padding: 10px;
+`;
+
+export const ImageQuestion = styled.View`
+  flex-direction: row;
   align-items: center;
-  border: 1px solid;
-  img {
-    margin: 1rem;
-  }
+`
+
+export const PerfilImg = styled.Image`
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
 `;
 
-export const TextPiuWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 16rem;
-  button {
-    width: 10rem;
-    height: 5rem;
-    cursor: pointer;
-    margin: 4rem 0 2rem 85%;
-    border-radius: 3rem;
-    background-color: var(--red-default);
-    color: white;
-  }
-  textarea {
-    width: 95%;
-    height: 40rem;
-    border: none;
-    resize: none;
-    outline: none;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    font-family: Belgrano;
-  }
+export const Question = styled.Text`
+  margin-left: 10px;
 `;
 
-export const Question = styled.p`
-  margin-right: 52%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+export const Arroba = styled.Text`
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
 `;
 
-export const Arroba = styled.p`
-  margin-right: 45%;
-  margin-right: 1rem;
-  margin-top: 5rem;
-  font-family: Belgrano;
+export const TextPiuWrapper = styled.View`
+  border: 1px solid grey;
+  background-color: white;
+  padding: 10px;
+  width: 90%;
+  height: 150px;
+  margin-left: 20px;
 `;
+
+export const InputPiu = styled.TextInput`
+  
+`;
+
+export const CorrecText = styled.Text`
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+`
+
+export const ButtonPost = styled.TouchableOpacity`
+  background-color: #ff6b6b;
+  padding: 5px;
+  width: 40px;
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+
+`;
+
+export const TextButtonPost = styled.Text`
+  color: white;
+`;
+
+export const CorrectText = styled.Text`
+
+`
+

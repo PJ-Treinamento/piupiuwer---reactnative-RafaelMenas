@@ -1,50 +1,44 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 
-export const HeadWrapper = styled.head`
-  width: 100vw;
-  height: 12vh;
-  background-color: #efefef;
-  display: flex;
-  flex: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-export const Logo = styled.img`
-  height: 5rem;
-  margin-left: 2rem;
-`;
+export const HeaderWrapper = styled.View`
+  flex-direction: row;
+  align-items:center; 
+  background-color: #ECE8E8;
+`
 
-export const Perfil = styled.img`
-  margin-right: 3rem;
-  width: 9rem;
-  border-radius: 5rem;
-`;
-
-export const SearchWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 50rem;
-  height: 5rem;
+export const LogOutInput = styled.TouchableOpacity`
+  margin: 70px 0 30px 20px;
   background-color: white;
-  border-radius: 1rem;
-  margin-left: 26rem;
-`;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid grey;
+`
 
-export const InputSearch = styled.input`
-  margin-left: 2rem;
-  width: 40rem;
-`;
+export const LogOutText = styled.Text`
+  color: #FF6B6B;
+  font-size: 20px;
+`
 
-export const LupaIcon = styled.img`
-  margin-top: 0.5rem;
-  margin-right: 1rem;
-  height: 4rem;
-  cursor:pointer;
-`;
+export const InputSearch = styled.TextInput`
+  width: 40%;
+  margin: 70px 0 30px 20px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid grey;
+  padding: 5px 0 5px 15px;
+`
 
-export const TrendingTopicsWrapper = styled.div`
-  img {
-    margin: 1rem;
-  }
-`;
+export const Logo = styled.Image`
+  width: 20%;
+  height: 40%;
+  margin: 45px 0 30px 20px;
+
+`
+
+
+
+
 

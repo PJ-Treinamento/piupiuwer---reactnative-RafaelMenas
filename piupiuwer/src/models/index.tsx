@@ -20,6 +20,7 @@ export interface IPiu {
   text: string;
   created_at: Date;
   updated_at: Date;
+  myInfos?: IUser;
 }
 
 export interface IPiuLike {

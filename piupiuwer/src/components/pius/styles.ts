@@ -1,101 +1,94 @@
 import styled from "styled-components/native";
 
 export const PiusWrapper = styled.View`
-  display: flex;
-  flex-direction: column;
+  margin: 0 20px 20px 20px;
 `;
+
 export const PrincipalWrapper = styled.View`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid;
-  div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  img {
-    object-fit: cover;
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    margin: 1.5rem 1rem 1.5rem 1.5rem;
-  }
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid grey;
 `;
 
 export const ImageText = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const PerfilImg = styled.Image`
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  margin: 10px;
 `;
 
 export const FirstName = styled.Text`
-  margin-right: 45rem;
-  font-size: Belgrano;
+  font-size: 18px;
 `;
 
 export const Arroba = styled.Text`
-  margin-right: 2rem;
-  margin-top: 4rem;
-  font-size: Belgrano;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 `;
 export const PiuTextWrapper = styled.View`
-  display: flex;
-  flex-direction: column;
+  padding: 15px 0 10px 15px;
+  background-color: white;
+  border: 1px solid grey;
 `;
-export const Text = styled.Text`
-  font-size: 2rem;
-  height: 12rem;
-  margin: 2rem 0 0 2rem;
-  font-size: Belgrano;
+export const PiuText = styled.Text`
+  margin-bottom: 50px;
 `;
 export const InterationsWrapper = styled.View`
-  display: flex;
-  margin: 2rem;
-  justify-content: space-between;
-  p {
-    font-size: 2rem;
-  }
-  input {
-    padding: -40rem;
-  }
+  flex-direction: row;
 `;
 export const ReplieWrapper = styled.View`
-  display: flex;
-  margin-right: -27rem;
-  padding-right: 5rem;
-  p {
-    margin-left: 1rem;
-    font-size: Belgrano;
-  }
+  flex-direction: row;
+  margin-right: 15px;
 `;
+
+export const ReplieNumber = styled.Text`
+  margin: 5px 0 0 5px;
+`;
+
+export const ReactIcon = styled.Image`
+  width: 30px;
+  height: 30px;
+`;
+
 export const RepiuWrapper = styled.TouchableOpacity`
-  display: flex;
-  margin-right: -22rem;
-  img {
-    height: 3rem;
-  }
+  flex-direction: row;
+  margin-right: 15px;
 `;
+
 export const LikeWrapper = styled.TouchableOpacity`
-  display: flex;
-  img {
-    height: 3rem;
-  }
-  p {
-    margin-left: 1rem;
-    font-size: Belgrano;
-  }
+  flex-direction: row;
+`;
+
+export const LikeNumber = styled.Text`
+  margin: 5px 0 0 5px;
+`;
+
+export const ButtonFollow = styled.TouchableOpacity`
+  margin-left: 15px;
+  background-color: #ff6b6b;
+  padding: 5px;
+`;
+
+export const TextFollow = styled.Text`
+  color: white;
 `;
 
 export const Buttons = styled.View`
-  display: flex;
-  button {
-    color: white;
-    height: 3rem;
-    width: 9rem;
-    margin: 1rem;
-    background-color: var(--red-default);
-    border-radius: 3rem;
-    cursor: pointer;
-  }
+  flex-direction: row;
+  margin-left: 35px;
 `;
 export const DeletePiu = styled.TouchableOpacity<{ delete: boolean }>`
-  display: ${(props) => (props.delete ? "initial" : "none")};
+  background-color: #ff6b6b;
+  padding: 5px;
+  display: ${(props) => (props.delete ? "flex" : "none")};
+`;
+
+export const TextDelete = styled.Text`
+  color: white;
 `;
